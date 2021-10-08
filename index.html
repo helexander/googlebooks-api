@@ -5,9 +5,30 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>The Book Portal</title>
-		<link rel="stylesheet" href="css/" />
+		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body>
-		<script src="js/"></script>
+		<form id="form" class="form__book">
+			<input type="text" id="search" placeholder="Search a book.." />
+		</form>
+
+		<!-- <input id="searchInput" type="text" />
+		<label for="searchFilter">Search Filter: </label>
+		<select name="searchFilter" id="searchFilter">
+			<option value="title">Title</option>
+			<option value="author">Author</option>
+			<option value="publisher">Publisher</option>
+		</select> -->
+		<button id="searchButton">Search</button>
+
+		<main id="main"></main>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.22.0/axios.min.js"
+			integrity="sha512-m2ssMAtdCEYGWXQ8hXVG4Q39uKYtbfaJL5QMTbhl2kc6vYyubrKHhr6aLLXW4ITeXSywQLn1AhsAaqrJl8Acfg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="js/index.js"></script>
 	</body>
 </html>
