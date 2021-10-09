@@ -7,12 +7,15 @@ body {
   background-color: #2a2a72;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   margin: 0;
+}
+
+.welcomeText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form__book {
@@ -62,6 +65,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 100px;
 }
 
 .card {
@@ -99,6 +103,8 @@ main {
   top: 0;
   position: fixed;
   z-index: 10;
+  transform: translateY(10%);
+  transition: transform 0.7s ease-in;
 }
 
 .overview {
@@ -113,4 +119,5 @@ main {
   overflow-y: auto;
   transition: transform 0.3s ease-in;
   color: black;
+  opacity: 0.85;
 }

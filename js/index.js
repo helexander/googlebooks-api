@@ -27,7 +27,7 @@ const createBookCard = (books) => {
         const cardHTML = `
         <div class="card">
                 <img
-                    src="${volumeInfo.imageLinks?.thumbnail ?? ''}"
+                    src="${volumeInfo.imageLinks?.thumbnail ?? '../images/book-default.jpeg'}"
                     alt="${volumeInfo.title}"
                     class="avatar"
                 />
