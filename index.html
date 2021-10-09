@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The Book Portal</title>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<div class="welcomeText">
+			<h1>Welcome to the Book Portal</h1>
+			<h3>Start by searching a book</h3>
+		</div>
+
+		<div class="form-container">
+			<form id="form" class="form__book">
+				<input type="text" id="search" placeholder="Search a book.." />
+				<button type="submit" id="searchButton" class="button__search">
+					<img src="images/search.png" alt="search" />
+				</button>
+			</form>
+		</div>
+
+		<main id="main"></main>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.22.0/axios.min.js"
+			integrity="sha512-m2ssMAtdCEYGWXQ8hXVG4Q39uKYtbfaJL5QMTbhl2kc6vYyubrKHhr6aLLXW4ITeXSywQLn1AhsAaqrJl8Acfg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="js/index.js"></script>
+	</body>
+</html>
