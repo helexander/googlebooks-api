@@ -1,5 +1,3 @@
-// following async await example from week 4, attempt to duplicate
-
 // google api key
 // const API_KEY = "AIzaSyBAdId07HtBnyLuS169Ja9pWVG16dRiw3Y";
 
@@ -7,17 +5,9 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const getButton = document.getElementById("searchButton");
-
+const headerItem = document.querySelector(".welcomeText");
 
 const googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=";
-
-// const getBook = async (searchInput) => {
-//     // console.log(searchInput);
-//     const response = await fetch(`${googleBooksURL}${searchInput}`);
-//     const data = await response.json();
-//     console.log(data);
-//     return data.items;
-// }
 
 const getBook = async (searchQuery) => {
     try {
@@ -34,34 +24,25 @@ const createBookCard = (books) => {
     const booksList = books.map((book) => {
         const { volumeInfo } = book;
 
-        // populating the list with elements obtained back from the fetch
-        //         const element = document.createElement('li');
-        //         const bookText = document.createTextNode(`${book.volumeInfo.title}`);
-
-        //         element.appendChild(bookText);
-        //         return element;
-        //     });
-
-        //     const append = parent => child => parent.appendChild(child);
-        //     listItem.forEach(append(list));
-
         const cardHTML = `
         <div class="card">
-        <div>
-            <img
-                src="${volumeInfo.imageLinks?.thumbnail ?? ''}"
-                alt=""
-                class="avatar"
-            />
+                <img
+                    src="${volumeInfo.imageLinks?.thumbnail ?? ''}"
+                    alt="${volumeInfo.title}"
+                    class="avatar"
+                />
+            <div class="book-info">
+                <h2>${volumeInfo.title}</h2>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                <p>Author: ${volumeInfo.authors}</p>
+                <p>
+                    Description: <br/>${volumeInfo?.description ?? "This book has no description"}
+                </p>
+                
+            </div>
         </div>
-        <div class="book-info">
-            <h2>${volumeInfo.title}</h2>
-            <p>
-                ${volumeInfo?.description ?? "This book has no description"}
-            </p>
-            <p>Author: ${volumeInfo.authors}</p>
-        </div>
-    </div>
         `
 
         return cardHTML;
@@ -72,9 +53,9 @@ const createBookCard = (books) => {
 
 const createErrorCard = (message) => {
     const cardHTML = `
-    <div class="card">
-    <h1>${message}</h1>
-</div>
+        <div class="card">
+            <h1>${message}</h1>
+        </div>
     `
 
     main.innerHTML = cardHTML;
@@ -85,11 +66,17 @@ form.addEventListener("submit", async (event) => {
 
     const book = search.value;
 
+    form.classList.add("stickToTop");
+
+
     if (book) {
         getBook(book);
 
+        // Hide welcome text when user performs a search 
+        headerItem.style.display = "none";
+
         search.value = "";
     } else if (book === "") {
-        createErrorCard("Please type a book title in the input bar");
+        createErrorCard("Please enter a valid book title in the input bar");
     }
 });
