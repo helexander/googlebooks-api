@@ -89,35 +89,7 @@ form.addEventListener("submit", async (event) => {
         getBook(book);
 
         search.value = "";
+    } else if (book === "") {
+        createErrorCard("Please type a book title in the input bar");
     }
 });
-
-// getButton.addEventListener("click", async (event) => {
-    //     // selecting the display block
-    //     const list = document.querySelector("#books");
-
-    //     // clearing the display block before pushing more data to it
-    //     list.innerHTML = "";
-
-    //     // selecting the search bar
-    //     const searchInput = document.querySelector("#searchInput").value;
-
-    //     // calling the getBook function to obtain/fetch data 
-    //     const booksResult = await getBook(searchInput);
-    //     console.log(booksResult);
-
-    //     // going through each object in the data returned to return its desired value
-    //     const listItem = booksResult.map((book) => {
-
-    //         // populating the list with elements obtained back from the fetch
-    //         const element = document.createElement('li');
-    //         const bookText = document.createTextNode(`${book.volumeInfo.title}`);
-
-    //         element.appendChild(bookText);
-    //         return element;
-    //     });
-
-    //     const append = parent => child => parent.appendChild(child);
-    //     listItem.forEach(append(list));
-
-// });
