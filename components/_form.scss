@@ -1,0 +1,33 @@
+.form {
+	&__book {
+		display: flex;
+		flex-direction: row;
+		width: 100vw;
+
+		& input {
+			margin-left: 2.5vw;
+			margin-right: 2.5vw;
+			width: 95vw;
+
+			display: block;
+			background-color: $primary-theme-color-1;
+			border: none;
+			border-radius: 10px;
+			color: $primary-font-color;
+			padding: 1rem;
+			margin-bottom: 2rem;
+			font-family: inherit;
+			font-size: 1rem;
+			box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+				0 15px 40px rgba (0, 0, 0, 0.1);
+
+			&::placeholder {
+				color: $search-font-placeholder;
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
