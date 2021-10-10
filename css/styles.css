@@ -1,23 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #2a2a72;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-  margin: 0;
-}
-
-.welcomeText {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .form__book {
   display: flex;
   flex-direction: row;
@@ -61,11 +42,19 @@ body {
   object-fit: cover;
 }
 
-main {
+.body__welcomeText {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 100px;
+  align-items: center;
+}
+.body__welcomeGIF {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(30%);
+  transition: transform 1s ease-in;
 }
 
 .card {
@@ -81,11 +70,7 @@ main {
   width: 100%;
   height: 360px;
 }
-.card:hover .overview {
-  transform: translateY(0);
-}
-
-.book-info {
+.card__info {
   color: #eee;
   display: flex;
   align-items: center;
@@ -93,21 +78,10 @@ main {
   padding: 0.5rem 1rem 1rem;
   letter-spacing: 0.5px;
 }
-.book-info h2 {
+.card__info h2 {
   margin-top: 0;
 }
-
-.stickToTop {
-  padding: 1rem;
-  width: 100%;
-  top: 0;
-  position: fixed;
-  z-index: 10;
-  transform: translateY(10%);
-  transition: transform 0.7s ease-in;
-}
-
-.overview {
+.card__overview {
   background-color: #fff;
   padding: 2rem;
   position: absolute;
@@ -118,6 +92,51 @@ main {
   transform: translateY(101%);
   overflow-y: auto;
   transition: transform 0.3s ease-in;
-  color: black;
+  color: #000;
   opacity: 0.85;
+}
+.card:hover .card__overview {
+  transform: translateY(0);
+}
+.card__error {
+  width: 70vw;
+  margin: 1rem;
+  background-color: #373b69;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.card__error_text {
+  display: flex;
+  justify-content: center;
+}
+
+.header__stickTop {
+  padding: 1rem;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+  transform: translateY(10%);
+  transition: transform 0.7s ease-in;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2a2a72;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px;
 }
