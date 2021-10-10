@@ -17,15 +17,15 @@ Google Books UI
 
 > Styling (required):
 - [x] This application should look good, take some time to pick a palette and plan out your design. You can use tools like Figma or wireframe pro to plan what your application is going to look like.
-- [ ] Styling must use BEM, and each block should have its own SCSS file
-- [ ] Your palette should use variables
+- [x] Styling must use BEM, and each block should have its own SCSS file
+- [x] Your palette should use variables
 
 > Application Design (required):
-- [ ] You should separate DOM functions and non-DOM functions in different modules
-- [ ] Write as many non-DOM functions as you can
-- [ ] Functions should do 1 thing, and should be as pure and reusable as possible
+- [x] You should separate DOM functions and non-DOM functions in different modules
+- [x] Write as many non-DOM functions as you can
+- [x] Functions should do 1 thing, and should be as pure and reusable as possible
 - [x] Always use iterators over loops
-- [ ] Always parametrize and abstract large pieces of duplicate code.
+- [x] Always parametrize and abstract large pieces of duplicate code.
 
 > Bonus (optional, but highly recommended):
 - [x] Give feedback to the user when no book results can be found for the query.
