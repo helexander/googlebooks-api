@@ -1,21 +1,20 @@
-// google api key
-// const API_KEY = "AIzaSyBAdId07HtBnyLuS169Ja9pWVG16dRiw3Y";
-
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const getButton = document.getElementById("searchButton");
-const headerItem = document.querySelector(".welcomeText");
+const headerItem = document.querySelector(".body__welcomeText");
+const welcomeItem = document.querySelector(".body__welcomeGIF");
 
+let maxResult = "&maxResults=" + 30;
 const googleBooksURL = "https://www.googleapis.com/books/v1/volumes?q=";
 
 const getBook = async (searchQuery) => {
     try {
-        const { data } = await axios.get(googleBooksURL + searchQuery);
+        const { data } = await axios.get(googleBooksURL + searchQuery + maxResult);
 
         createBookCard(data.items);
     } catch (err) {
-        createErrorCard("The book does not exist in the database.")
+        createErrorCard("The book does not exist in the database.");
     }
 }
 
@@ -31,10 +30,10 @@ const createBookCard = (books) => {
                     alt="${volumeInfo.title}"
                     class="avatar"
                 />
-            <div class="book-info">
+            <div class="card__info">
                 <h2>${volumeInfo.title}</h2>
             </div>
-            <div class="overview">
+            <div class="card__overview">
                 <h3>Overview</h3>
                 <p>Author: ${volumeInfo.authors}</p>
                 <p>
@@ -53,8 +52,8 @@ const createBookCard = (books) => {
 
 const createErrorCard = (message) => {
     const cardHTML = `
-        <div class="card">
-            <h1>${message}</h1>
+        <div class="card__error">
+            <h1 class="card__error_text">${message}</h1>
         </div>
     `
 
@@ -66,7 +65,7 @@ form.addEventListener("submit", async (event) => {
 
     const book = search.value;
 
-    form.classList.add("stickToTop");
+    form.classList.add("header__stickTop");
 
 
     if (book) {
@@ -74,9 +73,13 @@ form.addEventListener("submit", async (event) => {
 
         // Hide welcome text when user performs a search 
         headerItem.style.display = "none";
+        welcomeItem.style.display = "none";
 
         search.value = "";
     } else if (book === "") {
+        headerItem.style.display = "none";
+        welcomeItem.style.display = "none";
+
         createErrorCard("Please enter a valid book title in the input bar");
     }
 });

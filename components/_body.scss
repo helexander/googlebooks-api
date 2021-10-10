@@ -1,0 +1,17 @@
+.body {
+	&__welcomeText {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__welcomeGIF {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transform: translateY(30%);
+		transition: transform 1s ease-in;
+	}
+}
